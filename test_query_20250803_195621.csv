@@ -1,0 +1,4 @@
+component,test_type,avg_response_time_ms,avg_cpu_cores,peak_cpu_cores,avg_memory_mb,peak_memory_mb,concurrency,duration
+Doris,query,47.42023851344646,0.0218,0.094,65.039453125,65.09375,4,10 seconds
+Elasticsearch,query,37.117561241145545,0.09045,0.21899999999999997,39.0673828125,39.109375,4,10 seconds
+VictoriaLogs,query,138.5,0.0842,0.187,30.5703125,30.609375,4,10 seconds

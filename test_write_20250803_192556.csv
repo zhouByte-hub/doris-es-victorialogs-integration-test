@@ -1,0 +1,4 @@
+component,test_type,success_rate,avg_latency_ms,error_count,total_time_s,avg_cpu_cores,peak_cpu_cores,avg_memory_mb,peak_memory_mb,concurrency,batch_size,duration_s
+Doris,write,1.0,1.929844806068822,0,1,0.109,0.218,65.466796875,66.390625,4,100,1 seconds
+Elasticsearch,write,1.0,1.0386256575584412,0,1,0.078,0.156,39.05078125,39.5390625,4,100,1 seconds
+VictoriaLogs,write,1.0,1.1622697966439384,0,1,0.109,0.218,30.63671875,31.203125,4,100,1 seconds
