@@ -92,6 +92,7 @@ def query_worker(worker_id: int, duration: int, result_queue: List[Dict]):
         "worker_id": worker_id,
         "avg_response_time": avg_resp,
         "query_count": len(response_times)
+        
     })
 
 def monitor_resources(result_dict: Dict[str, Any], duration: int):
