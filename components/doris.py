@@ -27,7 +27,7 @@ def write_worker(worker_id: int, batch_size: int, duration: int, result_queue: L
     errors = 0
     total_latency = 0
     success_count = 0
-    conn = pymysql.connect(host=DORIS_HOST, port=DORIS_PORT, user=DORIS_USER, password=DORIS_PASSWORD, database=DORIS_DB)
+    conn = pymysql.connect(host=DORIS_HOST, port=DORIS_PORT, user=DORIS_USER, password=DORIS_PASSWORD, database=DORIS_DB,connect_timeout=10, read_timeout=60, write_timeout=60)
     cursor = conn.cursor()
 
     # 可选的枚举值

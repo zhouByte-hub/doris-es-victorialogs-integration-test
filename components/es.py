@@ -10,7 +10,7 @@ from typing import List, Dict, Any
 ES_HOST = "http://127.0.0.1:9200"
 ES_INDEX = "logs"
 
-es_client = Elasticsearch([ES_HOST])
+es_client = Elasticsearch([ES_HOST], timeout=60)
 
 def write_worker(worker_id: int, batch_size: int, duration: int, result_queue: List[Dict]):
     start_time = time.time()
@@ -48,7 +48,7 @@ def write_worker(worker_id: int, batch_size: int, duration: int, result_queue: L
 
         try:
             start = time.time()
-            es_client.bulk(operations=bulk_data, refresh=False)
+            es_client.bulk(operations=bulk_data, refresh=False, timeout=60)
             latency = time.time() - start
             total_latency += latency
             success_count += batch_size
@@ -80,7 +80,7 @@ def query_worker(worker_id: int, duration: int, result_queue: List[Dict]):
         try:
             query = {"size":0,"aggs":{"log_levels":{"terms":{"field":"serverity_text.keyword"}}}}
             t1 = time.time()
-            es_client.search(index=ES_INDEX, body=query)
+            es_client.search(index=ES_INDEX, body=query, timeout=60)
             response_times.append(time.time() - t1)
         except Exception as e:
             print(f"[ES Query-{worker_id}] Error: {e}")
